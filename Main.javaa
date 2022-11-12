@@ -1,0 +1,74 @@
+paket  Nusput . P6 . Laptopku ;
+impor  jawa . menggunakan . Pemindai ;
+impor  jawa . menggunakan . ArrayList ;
+
+ kelas  publik Utama {
+     batas kekosongan  statis (){
+        Sistem . keluar . println ( "=======================================================" );
+    }
+
+    static  void  pilihLaptop (){
+        Sistem . keluar . println ( "1.Lenovo" );
+        Sistem . keluar . println ( "2.Toshiba" );
+        Sistem . keluar . println ( "3.MacBook" );
+        Sistem . keluar . println ( "" );
+    }
+
+    static  void  menuLaptop (){
+        Sistem . keluar . println ( "1. Masukan 'ON' untuk menyalakan laptop" );
+        Sistem . keluar . println ( "2. Input 'OFF' untuk mematikan laptop" );
+        Sistem . keluar . println ( "3. Masukan 'UP' untuk menambah volume" );
+        Sistem . keluar . println ( "4. Masukkan 'BAWAH' untuk mengurangi volume" );
+    }
+
+    public  static  void  main ( String [] args ) {
+        boolean  bool = benar ;
+        Pemindai  sc = Pemindai baru  ( Sistem .in ) ;
+        ArrayList < Laptop > laptop = new  ArrayList <>();
+        Lenovo  lenovo = Lenovo baru  ();
+        toshiba  toshiba = toshiba baru  ();
+        MacBook  macbook = MacBook baru  ();
+
+        Sistem . keluar . println ( "\n\tMerk Laptop" );
+        batas ();
+        pilihLaptop ();
+        Sistem . keluar . print ( "Pilih jenis laptop : " );
+        int  noJenisLaptop = sc . nextInt ();
+        beralih ( noJenisLaptop ){
+            kasus  1 :
+                laptop . tambahkan ( lenovo );
+                istirahat ;
+            kasus  2 :
+                laptop . tambahkan ( toshiba );
+                istirahat ;
+            kasus  3 :
+                laptop . tambahkan ( macbook );
+        }
+
+        sementara ( bool ){
+            Sistem . keluar . println ( "\n\tMenu" );
+            batas ();
+            menuLaptop ();
+            Sistem . keluar . print ( "Masukan : " );
+            String  noMenu = sc . berikutnya ();
+            alihkan ( noMenu ){
+                kasus  "ON" :
+                    laptop . dapatkan ( 0 ). hidupkan ();
+                    istirahat ;
+                kasus  "MATI" :
+                    laptop . dapatkan ( 0 ). matikan ();
+                    bool = salah ;
+                    istirahat ;
+                kasus  "NAIK" :
+                    laptop . dapatkan ( 0 ). volumeNaik ();
+                    istirahat ;
+                kasus  "BAWAH" :
+                    laptop . dapatkan ( 0 ). volume Turun ();
+                    istirahat ;
+                bawaan :
+                    Sistem . keluar . println ( "PILIH SESUAI INSTRUKSI DI MENU -_-" );
+                    istirahat ;
+            }              
+        }        
+    }
+}
